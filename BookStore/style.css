@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body{
+    background-image: url('background.gif');
+    font-family: "Roboto", sans-serif;
+}
+h3{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+.h4{
+    font-size: 10px;
+}
+h2{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.single-item{
+    color: white;
+    border-radius: 30px;
+    background: #453750;
+    width: 15%;
+    padding: 50px auto;
+    padding-bottom: 50px;
+    margin: 5px 35px;
+    text-align: center;
+   
+}
+.single-item img{
+    width: 70%;
+    padding-top: 30px;
+    height: 30vh;
+}
+.single-item button{
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    padding: 10px 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #4169E1;
+    border-radius: 30px;
+    color: white;
+    background-color: #4169E1;
+    cursor: pointer;
+}
+.single-item input {
+	height: 20px;
+	width: 40px;
+	text-align: center;
+	font-size: 14px;
+}
+.items{
+    display: flex;
+}
+.cart{
+    color: white;
+    background-color: #453750;
+    margin: 14px auto;
+    height: 73vh;
+    width: 74%;
+}
+.cart-single-item{
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+    padding: 5px 10px;
+}
+.cart-single-item button {
+	padding: 5px;
+}
+.total {
+	text-align: right;
+	font-size: 24px;
+}

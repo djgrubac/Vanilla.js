@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Book Store</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="items">
+            <div class="single-item">
+                <img src="books/html:css.jpg" alt="">
+                <h5>HTML5 and CSS3 All-in-One For Dummies</h5>
+                <p class="price">$24</p>
+                <input type="number" name="quantity" value="0" min="0">
+                <button onclick="addToCart(this)">Buy</button>
+            </div>
+            <div class="single-item">
+                <img src="books/jsbook.jpg" alt="">
+                <h5>You Don't Know JS: Up & Going</h5>
+                <p class="price">$32</p>
+                <div class="actions">
+					<input type="number" name="quantity" value="0" min="0">
+					<button onclick="addToCart(this)">Buy</button>
+				</div>
+            </div>
+            <div class="single-item">
+                <img src="books/react.webp" alt="">
+                <h5>Learning React js: Learn React JS From Scratch with Hands-On Projects</h5>
+                <p class="price">$30</p>
+                <div class="actions">
+					<input type="number" name="quantity" value="0" min="0">
+					<button onclick="addToCart(this)">Buy</button>
+				</div>
+            </div>
+            <div class="single-item">
+                <img src="books/alghorithmbook.jpg" alt="">
+                <h5>Algorithms to Live By: The Computer Science of Human Decisionss</h5>
+                <p class="price">$15</p>
+                <div class="actions">
+					<input type="number" name="quantity" value="0" min="0">
+					<button onclick="addToCart(this)">Buy</button>
+				</div>
+            </div>
+            <div class="single-item">
+                <img src="books/cleancode.jpg" alt="">
+                <h5>Clean Code: A Handbook of Agile Software Craftsmanship</h5>
+                <p class="price">$20</p>
+                <div class="actions">
+					<input type="number" name="quantity" value="0" min="0">
+					<button onclick="addToCart(this)">Buy</button>
+				</div>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Cart:</h2>
+        <div class="cart-items"></div>
+        <div class="total"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

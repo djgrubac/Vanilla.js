@@ -1,0 +1,203 @@
+body{
+    background: beige;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+  
+.navbar-logo {
+    flex: 1;
+}
+  
+.navbar-logo img {
+    height: 50px;
+}
+  
+.navbar-links {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+  
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+}
+  
+.navbar-menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+  
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.line {
+    margin: 5px;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+}
+  
+  @media only screen and (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+		position: fixed;
+	    width: 100%;
+	    left: 0;
+	    right: 0;
+	    top: 80px;
+        z-index: 999;
+    }
+    .navbar-links a{
+        padding: 16px;
+    }
+    .hamburger-menu {
+      display: block;
+    }
+    .line{
+        display: flex;
+    }
+    
+  }
+
+.headline{
+    background-image: url('coffee.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin-top: 0;
+}
+h1{
+    font-size: 100px;
+    font-family: 'Covered By Your Grace', sans-serif;
+    text-align: center;
+    color: midnightblue;
+    top: 20%;
+    position: relative;
+    background-color: aqua;
+}
+.roasting{
+    font: inherit;
+    text-align: center;
+    margin: 40px auto;
+    padding: auto;
+    overflow: auto;
+    width: 75%;
+    align-self: center;
+
+}
+.roasting p{
+    color: #938E89;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  
+}
+h3{
+    color: #41292C;
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+}
+.types div{
+    margin: 0px auto;
+    text-align: left;
+    width: 75%;
+    font: inherit;
+    overflow: auto;
+}
+.types p{
+    font-family: 'Raleway', sans-serif;
+    padding-left: 20px;
+    color: #FFFFFF;
+}
+.green {
+    background-color: darkseagreen;
+}
+  
+.light {
+    background-color: sienna;
+}
+  
+.city {
+    background-color: saddlebrown;
+}
+  
+.vienna {
+    background-color: brown;
+}
+  
+.italian {
+    background-color: black;
+}
+h5{
+    padding-left: 20px;
+    color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+h4 {
+    padding-left: 20px;
+    color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+.country ul{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    width: 75%;
+}
+.country li{
+    border-bottom: 1px solid #E4BB97;
+    padding-bottom: 60px;
+}
+h2{
+    color: #E4BB97;
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+}
+p{
+    color: #444444;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+}
+a{
+    color: #214E34;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+}
