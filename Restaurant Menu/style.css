@@ -14,24 +14,35 @@ body{
 .menu-head{
     text-align: center;
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.menu-head img{
+    transition: all 0.5s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.menu-head img:hover{
+    transform: scale(1.3);
 }
 .menu-head h2{
     font-family: var(--Kaushan);
     font-size: 2.6rem;
+    margin: auto;
 }
-.menu-head p{
+.head-content p{
     text-align: center;
     margin: auto;
+    width: 85%;
     font-weight: 300;
     padding: 1.8rem 0;
-}
-.menu-head{
-    text-align: center;
 }
 .menu-btns{
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    transition: all 0.5s ease;
 }
 .menu-btn{
     font-family: var(--Kaushan);
@@ -48,7 +59,6 @@ body{
 .menu-btn:hover{
     border-radius: 15px;
     background-color: whitesmoke;
-    
     transform: scale(1.3);
 }
 .menu-btn:focus{
@@ -59,6 +69,7 @@ body{
     margin: 20px auto;
 }
 .food-item {
+    transition: all 0.5s ease;
     height: 160px;
     border-radius: 4px;
     width: 80%;
@@ -67,6 +78,9 @@ body{
     background-color: #fff;
     color: #000;
     box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
+}
+.food-item:hover{
+    transform: scale(1.1);
 }
 .food-img img{
     width: 120px;
@@ -82,12 +96,12 @@ body{
     font-family: var(--Inter);
     color: #ff9505;
     font-weight: 500;
-    text-transform: capitalize;
+    text-decoration: underline;
 }
 .line{
     width: 100px;
     height: 3px;
-    background: #ff9505;
+    display: inline;
 }
 .food-price{
     font-weight: 600;
@@ -102,7 +116,17 @@ body{
 .category span{
     font-weight: 500;
 }
-  
+button{
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+}
+button:hover{
+    background: rgb(131, 91, 18);
+}
+
 @media screen and (min-width: 390px){
     .food-item{
         display: grid;

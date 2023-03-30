@@ -38,3 +38,16 @@ newArrivalBtn.addEventListener('click', () => {
     }
   });
 });
+
+//CART
+const btnAdd = document.querySelectorAll('.add-btn');
+
+btnAdd.forEach(e=>{
+  e.addEventListener('click', ()=>{
+   // document.querySelector('.cart-items').innerHTML = `${[".food-name"]}`
+  });
+
+});
+
+
+
