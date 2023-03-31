@@ -1,3 +1,5 @@
+//MENU BUTTONS!!!
+
 const allBtn = document.getElementById('all');
 const featuredBtn = document.getElementById('featured');
 const todaySpecialBtn = document.getElementById('today-special');
@@ -39,15 +41,28 @@ newArrivalBtn.addEventListener('click', () => {
   });
 });
 
-//CART
-const btnAdd = document.querySelectorAll('.add-btn');
+//CART!!!
 
-btnAdd.forEach(e=>{
-  e.addEventListener('click', ()=>{
-   // document.querySelector('.cart-items').innerHTML = `${[".food-name"]}`
-  });
+const cartLogo = document.querySelector('.cart-logo');
+const cartPopup = document.querySelector('.cart-popup');
 
+cartLogo.addEventListener('click', () => {
+  if (cartPopup.style.display === 'none') {
+    cartPopup.style.display = 'block';
+  } else {
+    cartPopup.style.display = 'none';
+  }
 });
 
-
-
+//ADD BUTTON!!!
+const foodName = document.querySelectorAll('.food-name');
+const foodPrice = document.querySelectorAll('.food-price');
+const btnAdd = document.querySelectorAll('.add-btn');
+btnAdd.forEach((e, index)=>{ //index because food-name is part of NodeList
+  e.addEventListener('click', ()=>{
+   e.innerText = 'Added';
+   cartPopup.innerHTML += `${foodName[index].textContent}
+                          ${foodPrice[index].textContent}
+                          `;
+  })
+});
