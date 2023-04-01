@@ -20,7 +20,6 @@ featuredBtn.addEventListener('click', () => {
     }
   });
 });
-
 todaySpecialBtn.addEventListener('click', () => {
   allItems.forEach(item => {
     if (item.classList.contains('today-special')) {
@@ -30,7 +29,6 @@ todaySpecialBtn.addEventListener('click', () => {
     }
   });
 });
-
 newArrivalBtn.addEventListener('click', () => {
   allItems.forEach(item => {
     if (item.classList.contains('new-arrival')) {
@@ -59,25 +57,34 @@ cartLogo.addEventListener('click', () => {
 const foodName = document.querySelectorAll('.food-name');
 const foodPrice = document.querySelectorAll('.food-price');
 const btnAdd = document.querySelectorAll('.add-btn');
-let total = 0;
+const totalElement = document.querySelector('.total');
+let total = 0
 
-btnAdd.forEach((e, index)=>{ //index because food-name is part of NodeList
+btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
+  const name = foodName[index].textContent;
+   const price = parseFloat(foodPrice[index].textContent.slice(1));
+
   e.addEventListener('click', ()=>{
    e.innerText = 'Added';
-   const name = foodName[index].textContent;
-   const price = parseFloat(foodPrice[index].textContent.slice(1));
+   
     cartPopup.innerHTML += `<div class="cart-single-item">
                               ${name}: ${foodPrice[index].textContent}
-                              <button class="remove-item">Remove</button>
+                              <button class="remove-item">Remove</button><br>
+                              <span class="total"></span>
                             </div>`;
-  total += price;
-  total.innerText = `Total: ${total}`;
-   
-  })
+    total += price;
+    document.querySelector('.total').textContent = `Total: ${total}`;
+  
+  const removeBtn = document.querySelectorAll('.remove-item');
+  removeBtn.forEach(e=>{
+    e.addEventListener('click', ()=>{
+      document.querySelector('.cart-single-item').parentNode.remove();
+      btnAdd.innerText = 'Add to cart';
+      total -= price;
+      document.querySelector('.total').textContent = `Total: ${total}`;
+    });
+  });
+   //mora da se popravi oduzimanje cena !!!!!!!
+  });
 });
-/* Napravi Remove button !!!!!
-const removeBtn = document.querySelector('.remove-item');
-removeBtn.addEventListener('click', ()=>{
-  console.log('radi');
-});
-*/
+
