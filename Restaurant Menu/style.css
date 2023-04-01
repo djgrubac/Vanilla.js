@@ -152,12 +152,19 @@ button:hover{
 }
 .cart-popup {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 50px;
-    width: 400px;
+    width: 450px;
     height: 400px;
-    background-color: rgb(191, 218, 53);
-    border: 1px solid black;
+    background-color: #8673a3;
+    border: 1px solid red;
     z-index: 99;
+}
+.cart-single-item{
+    display: flex;
+    padding: 6px;
+}
+.remove-item{
+    padding-right: 10px;
 }

@@ -55,14 +55,29 @@ cartLogo.addEventListener('click', () => {
 });
 
 //ADD BUTTON!!!
+
 const foodName = document.querySelectorAll('.food-name');
 const foodPrice = document.querySelectorAll('.food-price');
 const btnAdd = document.querySelectorAll('.add-btn');
+let total = 0;
+
 btnAdd.forEach((e, index)=>{ //index because food-name is part of NodeList
   e.addEventListener('click', ()=>{
    e.innerText = 'Added';
-   cartPopup.innerHTML += `${foodName[index].textContent}
-                          ${foodPrice[index].textContent}
-                          `;
+   const name = foodName[index].textContent;
+   const price = parseFloat(foodPrice[index].textContent.slice(1));
+    cartPopup.innerHTML += `<div class="cart-single-item">
+                              ${name}: ${foodPrice[index].textContent}
+                              <button class="remove-item">Remove</button>
+                            </div>`;
+  total += price;
+  total.innerText = `Total: ${total}`;
+   
   })
 });
+/* Napravi Remove button !!!!!
+const removeBtn = document.querySelector('.remove-item');
+removeBtn.addEventListener('click', ()=>{
+  console.log('radi');
+});
+*/
