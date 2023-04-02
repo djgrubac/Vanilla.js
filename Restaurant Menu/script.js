@@ -57,34 +57,34 @@ cartLogo.addEventListener('click', () => {
 const foodName = document.querySelectorAll('.food-name');
 const foodPrice = document.querySelectorAll('.food-price');
 const btnAdd = document.querySelectorAll('.add-btn');
-const totalElement = document.querySelector('.total');
-let total = 0
+
+let total = 0;
 
 btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
-  const name = foodName[index].textContent;
-   const price = parseFloat(foodPrice[index].textContent.slice(1));
-
   e.addEventListener('click', ()=>{
-   e.innerText = 'Added';
-   
+    e.innerText = 'Added';
+    const name = foodName[index].textContent;
+    const price = parseFloat(foodPrice[index].textContent.slice(1));
     cartPopup.innerHTML += `<div class="cart-single-item">
+                              <div class = "item-detail">
                               ${name}: ${foodPrice[index].textContent}
                               <button class="remove-item">Remove</button><br>
-                              <span class="total"></span>
-                            </div>`;
+                              </div>
+                            </div>
+                            <span class="item-total"></span>`;
     total += price;
-    document.querySelector('.total').textContent = `Total: ${total}`;
+    document.querySelector('.item-total').textContent = `Total: ${total}`;
   
   const removeBtn = document.querySelectorAll('.remove-item');
   removeBtn.forEach(e=>{
     e.addEventListener('click', ()=>{
-      document.querySelector('.cart-single-item').parentNode.remove();
-      btnAdd.innerText = 'Add to cart';
+      document.querySelector('.item-detail').remove();
+      
       total -= price;
-      document.querySelector('.total').textContent = `Total: ${total}`;
+      document.querySelector('.item-total').textContent = `Total: ${total}`;
     });
   });
-   //mora da se popravi oduzimanje cena !!!!!!!
+  btnAdd.innerText = 'Add to cart';
   });
 });
 
