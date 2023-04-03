@@ -57,6 +57,7 @@ cartLogo.addEventListener('click', () => {
 const foodName = document.querySelectorAll('.food-name');
 const foodPrice = document.querySelectorAll('.food-price');
 const btnAdd = document.querySelectorAll('.add-btn');
+const totalItem = document.querySelector('.item-total');
 
 let total = 0;
 
@@ -66,25 +67,24 @@ btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
     const name = foodName[index].textContent;
     const price = parseFloat(foodPrice[index].textContent.slice(1));
     cartPopup.innerHTML += `<div class="cart-single-item">
-                              <div class = "item-detail">
                               ${name}: ${foodPrice[index].textContent}
                               <button class="remove-item">Remove</button><br>
-                              </div>
-                            </div>
-                            <span class="item-total"></span>`;
+                            </div>`;
     total += price;
-    document.querySelector('.item-total').textContent = `Total: ${total}`;
-  
-  const removeBtn = document.querySelectorAll('.remove-item');
-  removeBtn.forEach(e=>{
-    e.addEventListener('click', ()=>{
-      document.querySelector('.item-detail').remove();
-      
-      total -= price;
-      document.querySelector('.item-total').textContent = `Total: ${total}`;
-    });
-  });
-  btnAdd.innerText = 'Add to cart';
+    document.querySelector('.item-total').textContent = `Total: $${total}`;
+
+    const removeBtn = document.querySelectorAll('.remove-item');
+removeBtn.forEach(e => {
+  e.addEventListener('click', () => {
+    const cartItem = e.closest('.cart-single-item');
+    const itemPrice = parseFloat(cartItem.textContent.match(/\$\d+(\.\d{2})?/)[0].slice(1));
+    cartItem.remove();
+    total -= itemPrice;
+    document.querySelector('.item-total').textContent = `Total: $${total}`;
+    /*.match(/\$\d+(\.\d{2})?/) searches the text content for a dollar sign followed by one or more digits, and optionally a period and exactly two more digits. This will match a pattern like "$12.34" or "$5".
+      [0] selects the first match found.
+      .slice(1) removes the dollar sign from the beginning of the matched text. */
   });
 });
-
+});
+});

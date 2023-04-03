@@ -168,3 +168,6 @@ button:hover{
 .remove-item{
     padding-right: 10px;
 }
+.item-total{
+    display: flex;
+}
