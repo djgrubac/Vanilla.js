@@ -1,6 +1,6 @@
 let allTotal = 0;
 
-function addToCart(element){
+const addToCart = (element) => {
     let mainElement = element.closest('.single-item');
     let price = mainElement.querySelector('.price').innerText;
     let name = mainElement.querySelector('h3').innerText;
@@ -29,7 +29,7 @@ function addToCart(element){
     
 }
 
-function removeItem(element){
+const removeItem = (element) => {
     let mainElement = element.closest('.cart-single-item');
     let price = mainElement.querySelector('p span').innerText;
     price = parseInt(price);
