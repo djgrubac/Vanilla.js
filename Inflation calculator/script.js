@@ -1,4 +1,4 @@
-function inflationCalculator(){
+const inflationCalculator = () => {
     let inflationRate = document.querySelector('#inflationRate');
     let money = document.querySelector('#money');
     let years = document.querySelector('#years');
