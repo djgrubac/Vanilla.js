@@ -68,7 +68,7 @@ btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
     const price = parseFloat(foodPrice[index].textContent.slice(1));
     cartPopup.innerHTML += `<div class="cart-single-item">
                               ${name}: ${foodPrice[index].textContent}
-                              <button class="remove-item">Remove</button><br>
+                              <button class="remove-item">Remove</button>
                             </div>`;
     total += price;
     document.querySelector('.item-total').textContent = `Total: $${total}`;
@@ -88,3 +88,33 @@ removeBtn.forEach(e => {
 });
 });
 });
+
+      const orderBtn = document.querySelector('.order-btn');
+      const popupModal = document.querySelector('.popup-modal');
+      const closeBtn = document.querySelector('.close-modal');
+      const orderItems = document.querySelector('.order-items');
+
+      //FIX ORDER BUTTON !!!!
+      
+      orderBtn.addEventListener('click', () => {
+        let html = '';
+        const cartItems = document.querySelectorAll('.cart-single-item');
+        cartItems.forEach((item) => {
+          const name = item.querySelector('.item-name').textContent;
+          const price = item.querySelector('.item-price').textContent;
+          html += `<div>${name}: ${price}</div>`;
+        });
+        orderItems.innerHTML = html;
+        popupModal.style.display= 'block'
+      });
+      
+      closeBtn.addEventListener('click', () => {
+        popupModal.style.display = 'none'
+      });
+
+/*orderBtn.addEventListener('click', () => {
+  popupModal.style.display = 'block';
+  if(cartPopup.innerHTML === true){
+    orderItems.innerHTML += document.querySelectorAll('.cart-single-item')
+  }
+  */
