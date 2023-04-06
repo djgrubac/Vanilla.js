@@ -61,7 +61,7 @@ const totalItem = document.querySelector('.item-total');
 
 let total = 0;
 
-btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
+btnAdd.forEach((e, index)=>{  //index because food-name is part of NodeList
   e.addEventListener('click', ()=>{
     e.innerText = 'Added';
     const name = foodName[index].textContent;
@@ -72,6 +72,8 @@ btnAdd.forEach((e, index)=>{    //index because food-name is part of NodeList
                             </div>`;
     total += price;
     document.querySelector('.item-total').textContent = `Total: $${total}`;
+
+  //REMOVE BUTTON!!!
 
     const removeBtn = document.querySelectorAll('.remove-item');
 removeBtn.forEach(e => {
@@ -89,32 +91,24 @@ removeBtn.forEach(e => {
 });
 });
 
+  //POPUP MODAL!!!
+
       const orderBtn = document.querySelector('.order-btn');
       const popupModal = document.querySelector('.popup-modal');
       const closeBtn = document.querySelector('.close-modal');
       const orderItems = document.querySelector('.order-items');
+      const overlay = document.querySelector('.overlay');
 
-      //FIX ORDER BUTTON !!!!
-      
       orderBtn.addEventListener('click', () => {
-        let html = '';
-        const cartItems = document.querySelectorAll('.cart-single-item');
-        cartItems.forEach((item) => {
-          const name = item.querySelector('.item-name').textContent;
-          const price = item.querySelector('.item-price').textContent;
-          html += `<div>${name}: ${price}</div>`;
+        popupModal.style.display = 'block';
+        overlay.style.display = 'block';
+        cartPopup.style.display = 'none';
+       
         });
-        orderItems.innerHTML = html;
-        popupModal.style.display= 'block'
-      });
-      
+
+
       closeBtn.addEventListener('click', () => {
         popupModal.style.display = 'none'
+        overlay.style.display = 'none';
       });
 
-/*orderBtn.addEventListener('click', () => {
-  popupModal.style.display = 'block';
-  if(cartPopup.innerHTML === true){
-    orderItems.innerHTML += document.querySelectorAll('.cart-single-item')
-  }
-  */

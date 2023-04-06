@@ -180,6 +180,7 @@ button:hover{
     background: darkred;
 }
 .item-total{
+    font-family: var(--Kaushan);
     font-size: 25px;
     padding-left: 20px;
     padding-top: 10px;
@@ -206,4 +207,37 @@ button:hover{
     padding: 30px;
     margin: auto;
     background-color: #fff;
+}
+.popup-modal{
+    height: 500px;
+    width: 600px;
+    top: 50px;
+    background: linear-gradient(135deg,  #8673a3, purple);
+}
+.popup-modal p{
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--Kaushan);
+}
+.popup-modal button{
+    font-size: 26px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: red;
+    font-weight: bold;
+    border: 0;
+}
+.overlay{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
 }
