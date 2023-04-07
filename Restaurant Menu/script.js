@@ -41,7 +41,7 @@ newArrivalBtn.addEventListener('click', () => {
 
 //CART!!!
 
-const cartLogo = document.querySelector('.cart-logo');
+  const cartLogo = document.querySelector('.cart-logo');
 const cartPopup = document.querySelector('.cart-popup');
 
 cartLogo.addEventListener('click', () => {
@@ -53,7 +53,6 @@ cartLogo.addEventListener('click', () => {
 });
 
 //ADD BUTTON!!!
-
 const foodName = document.querySelectorAll('.food-name');
 const foodPrice = document.querySelectorAll('.food-price');
 const btnAdd = document.querySelectorAll('.add-btn');
@@ -63,35 +62,37 @@ let total = 0;
 
 btnAdd.forEach((e, index)=>{  //index because food-name is part of NodeList
   e.addEventListener('click', ()=>{
-    e.innerText = 'Added';
+    e.disable = true;
+    e.innerText = 'Added'
     const name = foodName[index].textContent;
     const price = parseFloat(foodPrice[index].textContent.slice(1));
     cartPopup.innerHTML += `<div class="cart-single-item">
+                              <div class="single-item">
                               ${name}: ${foodPrice[index].textContent}
+                              </div>
                               <button class="remove-item">Remove</button>
-                            </div>`;
+                           </div>`;
+                                            
     total += price;
     document.querySelector('.item-total').textContent = `Total: $${total}`;
 
   //REMOVE BUTTON!!!
 
     const removeBtn = document.querySelectorAll('.remove-item');
-removeBtn.forEach(e => {
-  e.addEventListener('click', () => {
-    const cartItem = e.closest('.cart-single-item');
-    const itemPrice = parseFloat(cartItem.textContent.match(/\$\d+(\.\d{2})?/)[0].slice(1));
-    cartItem.remove();
-    total -= itemPrice;
-    document.querySelector('.item-total').textContent = `Total: $${total}`;
-    /*.match(/\$\d+(\.\d{2})?/) searches the text content for a dollar sign followed by one or more digits, and optionally a period and exactly two more digits. This will match a pattern like "$12.34" or "$5".
-      [0] selects the first match found.
-      .slice(1) removes the dollar sign from the beginning of the matched text. */
-  });
-});
-});
-});
+    removeBtn.forEach(e => {
+      e.addEventListener('click', () => {
+        const cartItem = e.closest('.cart-single-item');
+        const itemPrice = parseFloat(cartItem.textContent.match(/\$\d+(\.\d{2})?/)[0].slice(1));
+        cartItem.remove();
+        total -= itemPrice;
+        document.querySelector('.item-total').textContent = `Total: $${total}`;
+        /*.match(/\$\d+(\.\d{2})?/) searches the text content for a dollar sign followed by one or more digits, and optionally a period and exactly two more digits. This will match a pattern like "$12.34" or "$5".
+          [0] selects the first match found.
+          .slice(1) removes the dollar sign from the beginning of the matched text. */
+      });
+    });
 
-  //POPUP MODAL!!!
+    //POPUP MODAL!!!
 
       const orderBtn = document.querySelector('.order-btn');
       const popupModal = document.querySelector('.popup-modal');
@@ -99,16 +100,28 @@ removeBtn.forEach(e => {
       const orderItems = document.querySelector('.order-items');
       const overlay = document.querySelector('.overlay');
 
+    //"ORDER" BUTTON!!!
+
       orderBtn.addEventListener('click', () => {
         popupModal.style.display = 'block';
         overlay.style.display = 'block';
         cartPopup.style.display = 'none';
-       
-        });
 
+        const cartItems = document.querySelectorAll('.cart-single-item');
+        cartItems.forEach(cartItem => {
+          const singleItem = cartItem.querySelector('.single-item').textContent;
+          orderItems.innerHTML += `<li>${singleItem}</li>`;
+        });
+        const totalElement = document.createElement('p');
+  totalElement.textContent = `Total: $${total}`;
+  popupModal.appendChild(totalElement);
+      });
+
+    //CLOSE BUTTON!!!
 
       closeBtn.addEventListener('click', () => {
         popupModal.style.display = 'none'
         overlay.style.display = 'none';
       });
-
+    });
+  });  
