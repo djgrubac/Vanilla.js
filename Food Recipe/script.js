@@ -61,7 +61,7 @@ const mealRecipeModal = (meal) => {
     console.log(meal)
     meal = meal[0]
 
-    let html =  `<h2 class="recipe-title">${meal.strMeal}</h2>
+    let html = `<h2 class="recipe-title">${meal.strMeal}</h2>
                         <p class="recipe-category">${meal.strCategory}</p>
                         <div class="recipe-instruct">
                         <h3>Instructions:</h3>
@@ -78,4 +78,12 @@ const mealRecipeModal = (meal) => {
     mealDetailsContent.parentElement.classList.add('showRecipe');
 }
 
-//36:44
+recipeCloseBtn.addEventListener('click', () => {
+    mealDetailsContent.parentElement.classList.remove('showRecipe');
+})
+
+document.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){
+        getMealList();
+    }
+});    
